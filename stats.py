@@ -23,7 +23,6 @@ def sort_on(items):
 
     for char in items:
         if char.isalpha():
-            # charCountList.append({char:items[char]})
             charCountList.append({"char":char, "num":items[char]})
     
     charCountList.sort(reverse=True, key=helper_sort)

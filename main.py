@@ -1,7 +1,14 @@
 from stats import get_num_words, get_num_chars, sort_on
+import sys
+
 
 def main():
-    fd  = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        msg = f"Usage: python3 main.py <path_to_book>"
+        print(msg)
+        sys.exit(1)
+    
+    fd = sys.argv[1]
     text = get_book_text(fd)
     number_of_words = get_num_words(text)
     myDict = get_num_chars(text)
