@@ -8,9 +8,26 @@ def get_num_words(book_contents):
 
 def get_num_chars(book_contents):
     dictionaryCounter = {}
-    for char in book_contents:
+
+    for char in book_contents.lower():
         if char in dictionaryCounter:
-            dictionaryCounter[char] += 1
+            dictionaryCounter[char.lower()] += 1
         else:
-            dictionaryCounter[char] = 1
+            dictionaryCounter[char.lower()] = 1
     return dictionaryCounter
+
+
+
+def sort_on(items):
+    charCountList = []
+
+    for char in items:
+        if char.isalpha():
+            # charCountList.append({char:items[char]})
+            charCountList.append({"char":char, "num":items[char]})
+    
+    charCountList.sort(reverse=True, key=helper_sort)
+    return charCountList
+
+def helper_sort(items):
+    return items["num"]
